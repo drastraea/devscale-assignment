@@ -1,0 +1,56 @@
+@tailwind components;
+
+.editor-toolbar {
+    @apply px-4 py-3 rounded-tl-md justify-between items-start gap-5 w-full flex-wrap border border-indigo-600
+}
+
+.editor-toolbar-button {
+    @apply flex justify-start items-center gap-5 w-full lg:w-10/12 flex-wrap
+}
+
+.tb-button-active {
+    @apply bg-indigo-700 text-white p-2 rounded-md
+}
+
+.tb-button {
+    @apply text-indigo-400
+}
+
+.bubble-button {
+    @apply bg-indigo-400 text-white p-2 rounded-sm
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: white;
+    border: 1px solid #ddd;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+    min-width: 100px;
+    display: flex;
+    flex-direction: column;
+}
+
+.dropdown-menu button {
+    background: none;
+    border: none;
+    padding: 5px 10px;
+    text-align: left;
+    cursor: pointer;
+    width: 100%;
+}
+
+.dropdown-menu button:hover {
+    background: #f0f0f0;
+}
+
+.editor-content {
+    @apply px-4 py-3 rounded-br-md border-t-0 justify-between items-start gap-5 w-full flex-wrap border border-indigo-600
+}
