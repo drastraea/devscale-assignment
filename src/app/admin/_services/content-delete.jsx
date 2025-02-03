@@ -1,63 +1,23 @@
-'use client';
+"use server"
+import { revalidatePath } from "next/cache";
 
-import React, { useState } from 'react';
-import * as AlertDialog from '@radix-ui/react-alert-dialog';
+const API_URL = process.env.API_URL
 
-const NEXT_PUBLIC_API_URL = process.env.NEXT_PUBLIC_API_URL;
+export async function deleteContent(id) {
+  try {
+    const response = await fetch(API_URL, {
+      method: 'DELETE',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify([id])
+    })
 
-const Delete = ({ id, onDeleteSuccess }) => {
-  const [loading, setLoading] = useState(false);
-
-  const handleDelete = async () => {
-    setLoading(true);
-    try {
-      const response = await fetch(NEXT_PUBLIC_API_URL, {
-        method: 'DELETE',
-        body: JSON.stringify([ id ]),
-        headers: { 'Content-Type': 'application/json' },
-      });
-
-      if (!response.ok) throw new Error('Failed to delete');
-
-      onDeleteSuccess(id);
-    } catch (error) {
-      alert(error.message);
-    } finally {
-      setLoading(false);
+    if (!response.ok) {
+      throw new Error('Failed to delete content')
     }
-  };
-
-  return (
-    <AlertDialog.Root>
-      <AlertDialog.Trigger asChild>
-        <button className="btn btn-danger" disabled={loading}>
-          {loading ? 'Deleting...' : 'Delete'}
-        </button>
-      </AlertDialog.Trigger>
-
-      <AlertDialog.Portal>
-        <AlertDialog.Overlay className="fixed inset-0 bg-black/50" />
-        <AlertDialog.Content className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white p-6 rounded-lg shadow-lg">
-          <AlertDialog.Title className="text-lg font-bold">
-            Are you sure?
-          </AlertDialog.Title>
-          <AlertDialog.Description className="text-sm text-gray-600">
-            This action is permanent and cannot be undone.
-          </AlertDialog.Description>
-          <div className="mt-4 flex justify-end gap-2">
-            <AlertDialog.Cancel asChild>
-              <button className="px-3 py-1 bg-gray-300 rounded">Cancel</button>
-            </AlertDialog.Cancel>
-            <AlertDialog.Action asChild>
-              <button onClick={handleDelete} className="px-3 py-1 bg-red-500 text-white rounded" disabled={loading}>
-                {loading ? 'Deleting...' : 'Iye, Delete'}
-              </button>
-            </AlertDialog.Action>
-          </div>
-        </AlertDialog.Content>
-      </AlertDialog.Portal>
-    </AlertDialog.Root>
-  );
-};
-
-export default Delete;
+    
+    revalidatePath('/admin')
+    return { success: true }
+  } catch (error) {
+    return { success: false, message: error.message }
+  }
+}

@@ -7,11 +7,10 @@ export default function Content({ post, postContent }) {
     const [content, setContent] = useState(null);
 
     useEffect(() => {
-        // Only set content after component mounts to avoid SSR mismatch
         setContent(postContent.__html);
     }, [postContent]);
 
-    if (!content) return <p>Loading...</p>; // Ensure content is available before rendering
+    if (!content) return <p>Loading...</p>;
 
     return (
         <div>

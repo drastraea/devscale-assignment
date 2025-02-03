@@ -12,6 +12,8 @@ This is a Content Management System (CMS) built with Next.js that allows for eas
 - **Next.js**: React framework for building the application.
 - **React**: JavaScript library for building user interfaces.
 - **TailwindCSS**: Styling for the components.
+- **AppBackend**: App Demo Database
+- **TipTap**: WYSIWYG Editor for content writing and update.
 - **Typography**: TailwindCSS Plugin.
 - **Framer Motion**: Animate the About page.
 - **API Integration**: Fetching data from a backend API.
@@ -19,8 +21,8 @@ This is a Content Management System (CMS) built with Next.js that allows for eas
 ## Setup Instructions
 1. **Clone the repository:**
 ```bash
-git clone <repository-url>
-cd <project-directory>
+git clone https://github.com/drastraea/devscale-assignment.git
+cd devscale-assignment
 ```
 2. **Install dependencies:**
 

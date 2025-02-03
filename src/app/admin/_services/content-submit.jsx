@@ -1,16 +1,11 @@
 "use server";
 
-const NEXT_PUBLIC_API_URL = process.env.NEXT_PUBLIC_API_URL;
+const API_URL = process.env.API_URL;
 
 export default async function SubmitContent(formData, method = "POST") {
     const title = formData.get("title")?.trim();
     const desc = formData.get("desc")?.trim();
     const content = formData.get("content")?.trim();
-    
-    if (!title || !content) {
-        throw new Error("Title and content are required");
-    }
-
     const slug = title
         .toLowerCase()
         .replace(/[^a-z0-9\s-]/g, '')
@@ -34,7 +29,7 @@ export default async function SubmitContent(formData, method = "POST") {
     }
 
     const options = { method, headers, body };
-    const res = await fetch(NEXT_PUBLIC_API_URL, options);
+    const res = await fetch(API_URL, options);
 
     if (!res.ok) {
         const errorData = await res.json().catch(() => null);

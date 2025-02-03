@@ -1,13 +1,16 @@
-import React from "react";
 import NavHeader from "../components/nav";
-import ContentLists from "./_services/content-lists";
+import { contentFetch } from "./_services/fetchContent";
+import ContentLists from "./_components/content-lists";
 
-export default function Home() {
+export default async function Home() {
+
+  const { data } = await contentFetch();
+
   return (
     <div>
       <NavHeader />
       <main className="main-content">
-        <ContentLists />
+        <ContentLists data={data} />
       </main>
     </div>
   );
