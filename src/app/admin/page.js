@@ -2,7 +2,6 @@ import { contentFetch } from "@admin/_services/content-fetch";
 import Header from "./_components/header";
 import ContentLists from "./_components/content-lists";
 import SideNav from "./_components/nav";
-import { ConfirmDelete } from "./_components/confirmation-box";
 
 export default async function Admin() {
 

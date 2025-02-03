@@ -1,5 +1,7 @@
 "use server";
 
+import { revalidatePath } from "next/cache";
+
 const API_URL = process.env.API_URL;
 
 export default async function SubmitContent(formData, method = "POST") {
@@ -37,5 +39,6 @@ export default async function SubmitContent(formData, method = "POST") {
         return { success: false, message: errorMessage };
     }
 
+    revalidatePath('admin')
     return { success: true, message: `Content ${title} created` };
 }
