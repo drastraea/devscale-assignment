@@ -5,7 +5,7 @@ import ContentLists from "./_components/content-lists";
 
 export default async function Admin() {
 
-    const { data } = await contentFetch();
+    const data = await contentFetch();
 
     return (
         <div>

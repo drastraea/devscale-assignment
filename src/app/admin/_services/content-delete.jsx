@@ -1,4 +1,3 @@
-"use server"
 import { revalidatePath } from "next/cache";
 
 const API_URL = process.env.API_URL

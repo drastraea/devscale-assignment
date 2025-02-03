@@ -8,7 +8,7 @@ export default function ContentLists({ data }) {
   return (
     <div className="w-full">
       <div className="content-table">
-        {data.map((item) => (
+        {data.data.map((item) => (
           <div key={item._id} className="content-lists">
             <h2>{item.title}</h2>
             <p>{item.desc}</p>
