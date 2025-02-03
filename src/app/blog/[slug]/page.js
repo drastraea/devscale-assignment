@@ -1,5 +1,5 @@
+import SideNav from "@/components/SideNav";
 import Content from "../_components/content";
-import NavHeader from "@/components/nav";
 
 const API_URL = process.env.API_URL;
 
@@ -14,11 +14,11 @@ export default async function BlogContent({ params }) {
     }
 
     return (
-        <div>
-            <NavHeader />
-            <main className="main-content">
+        <main>
+            <SideNav />
+            <div className="article">
                 <Content post={data[0]} postContent={{ __html: data[0].content }} />
-            </main>
-        </div>
+            </div>
+        </main>
     );
 }

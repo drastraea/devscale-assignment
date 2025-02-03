@@ -14,6 +14,7 @@ export default {
     },
   },
   plugins: [
-    require('@tailwindcss/typography'), // Add the typography plugin
+    require('@tailwindcss/typography'),
+    require('@tailwindcss/aspect-ratio'),
   ],
 };

@@ -1,15 +1,15 @@
-import Nav from "@admin/_components/nav";
 import Header from "@admin/_components/header";
 import ContentForm from "@admin/_components/content-form";
+import SideNav from "@admin/_components/nav";
 
 export default function New() {
     return (
-        <div>
-            <Nav />
-            <main className="main-content">
+        <main>
+            <SideNav />
+            <div className="content-form">
                 <Header />
                 <ContentForm />
-            </main>
-        </div>
+            </div>
+        </main>
     );
 }

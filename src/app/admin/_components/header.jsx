@@ -11,17 +11,17 @@ export default function Header() {
       {pathname === "/admin" ? (
         <>
           <h2>Content Lists</h2>
-          <Link href="/admin/new">Add</Link>
+          <Link href="/admin/new" className="btn">Add</Link>
         </>
       ) : pathname === "/admin/new" ? (
         <>
           <h2>Create Content</h2>
-          <Link href="/admin">Back</Link>
+          <Link href="/admin" className="btn">Back</Link>
         </>
       ) : pathname.includes("/admin/edit") ? (
         <>
           <h2>Update Content</h2>
-          <Link href="/admin">Back</Link>
+          <Link href="/admin" className="btn">Back</Link>
         </>
       ) : null}
     </div>

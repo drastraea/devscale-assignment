@@ -13,7 +13,7 @@ export default function SideNav() {
   ]
 
   return (
-    <nav className="sidenav">
+    <div className="sidenav">
       <div className="logo-wrapper">
         {/* Logo */}
       </div>
@@ -22,12 +22,12 @@ export default function SideNav() {
           key={href}
           href={href}
           className={`sidenav-link ${
-            pathname === href ? 'font-bold' : ''
+            pathname === href ? 'font-medium' : ''
           }`}
         >
           {label}
         </Link>
       ))}
-    </nav>
+    </div>
   )
 }

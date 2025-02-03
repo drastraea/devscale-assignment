@@ -1,19 +1,19 @@
 import Link from 'next/link';
 
-export default function ContentLists( {data} ) {
+export default function ContentLists( {title, desc, slug} ) {
+
+  function excerpt(text, length = 50) {
+    return text.length > length ? text.substring(0, length) + "..." : text;
+  }
+
   return (
-    <div className="content-container">
-      {data.map((item) => (
-        <div key={item._id} className="content-card">
-          <div className="content-info">
-            <h2 className="font-semibold text-lg">{item.title}</h2>
-            <p>{item.desc}</p>
-          </div>
-          <Link href={`/blog/${item.slug}`} passHref>
-            <button className="btn btn-sm read-more">Read More</button>
+          <Link href={`/blog/${slug}`}>
+            <div className="card">
+              <div className="card-info">
+                <h3>{excerpt(title)}</h3>
+                <p>{excerpt(desc)}</p>
+              </div>
+            </div>
           </Link>
-        </div>
-      ))}
-    </div>
   );
 }

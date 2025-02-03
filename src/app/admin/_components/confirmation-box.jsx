@@ -1,15 +1,19 @@
 'use client';
 import React, { useState } from 'react';
 import * as AlertDialog from '@radix-ui/react-alert-dialog';
-import { deleteContent } from '../_services/content-delete';
+import { deleteContent } from '../_services/content-delete'; // Ensure this matches the updated function name
 
-export const ConfirmDelete = ({ id}) => {
+export const ConfirmDelete = ({ id }) => {
   const [loading, setLoading] = useState(false);
 
   const handleDelete = async () => {
     setLoading(true);
-    const result = await deleteContent(id);
-    setLoading(false);
+
+    const result = await deleteContent(id); // Call the delete API function
+
+    if (result.success) {
+      setLoading(false);
+    }
   };
 
   return (
@@ -22,14 +26,14 @@ export const ConfirmDelete = ({ id}) => {
 
       <AlertDialog.Portal>
         <AlertDialog.Overlay className="fixed inset-0 bg-black/50" />
-        <AlertDialog.Content className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white p-6 rounded-lg shadow-lg">
+        <AlertDialog.Content className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-black text-white p-6 rounded-lg shadow-lg">
           <AlertDialog.Title className="text-lg font-bold">Are you sure?</AlertDialog.Title>
           <AlertDialog.Description className="text-sm text-gray-600">
             This action is permanent and cannot be undone.
           </AlertDialog.Description>
           <div className="mt-4 flex justify-end gap-2">
             <AlertDialog.Cancel asChild>
-              <button className="px-3 py-1 bg-gray-300 rounded">Cancel</button>
+              <button className="px-3 py-1 bg-gray-400 rounded">Cancel</button>
             </AlertDialog.Cancel>
             <AlertDialog.Action asChild>
               <button
