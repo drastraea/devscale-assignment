@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from "react";
 import PrismLoader from "@/components/PrismLoader";
-import SideNav from "@/components/SideNav";
 
 export default function Content({ post, postContent }) {
     const [content, setContent] = useState(null);

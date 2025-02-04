@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+    --font-roboto-mono: "Roboto Mono", monospace;
+}
+
+
 @layer base {
 
     html,
@@ -57,15 +62,7 @@
     }
 
     .sidenav-link {
-        @apply pr-0.5 py-3 pl-0.5 right-0 left-auto text-gray-400 hover:text-gray-100 flex items-center space-x-3 transition-colors duration-200;
-    }
-
-    .sidenav-link:hover {
-        @apply bg-gray-700 text-xl rounded-md;
-    }
-
-    .sidenav-link.active {
-        @apply text-white text-xl;
+        @apply pr-0.5 py-3 pl-0.5 right-0 left-auto text-gray-400 flex items-center space-x-3;
     }
 
     .header {
@@ -105,11 +102,7 @@
         @apply flex justify-between rounded-lg p-6;
     }
 
-    .card:hover {
-        @apply bg-indigo-700 transition duration-200 ease-in-out;
-    }
-
-    .card-info h1 {
+    .card-info h3 {
         @apply font-semibold;
     }
 
@@ -126,7 +119,7 @@
     }
 
     .content-lists p {
-        @apply text-gray-400 text-sm;
+        @apply text-gray-400 text-xs;
     }
 
     .action-btn {

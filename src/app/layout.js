@@ -1,14 +1,9 @@
-import { Noto_Sans, Noto_Sans_Mono } from "next/font/google";
+import { Roboto_Mono } from "next/font/google";
 import "./globals.css";
 
-const notoFont = Noto_Sans({
-  variable: "--font-noto",
-  subsets: ["latin"],
-});
-
-const notoMono = Noto_Sans_Mono({
-  variable: "--font-noto-mono",
-  subsets: ["latin"],
+const robotoMono = Roboto_Mono({
+  variable: "--font-roboto-mono",
+  subsets: ["latin"]
 });
 
 export const metadata = {
@@ -20,7 +15,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${notoFont.variable} ${notoMono.variable} antialiased`}
+        className={`${robotoMono.className} antialiased`}
       >
         {children}
       </body>
