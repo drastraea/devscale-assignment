@@ -29,6 +29,46 @@
         @apply border-indigo-700 outline-none;
     }
 
+    ol {
+        list-style-type: decimal;
+        padding-left: 1.5rem;
+        margin: 0;
+        font-family: 'Arial', sans-serif;
+    }
+
+    ol li {
+        font-size: 1rem;
+        margin-bottom: 10px;
+        line-height: 1.5;
+    }
+
+    ol li::marker {
+        @apply font-bold text-indigo-200
+    }
+
+    ol {
+        counter-reset: list-counter;
+    }
+
+    ol li {
+        counter-increment: list-counter;
+    }
+
+    ul {
+        @apply list-none pl-6 m-0
+    }
+
+    ul li {
+        @apply mb-2.5 relative;
+        line-height: 1.5;
+    }
+
+    ul li::before {
+        @apply font-bold absolute -left-6 top-0 text-indigo-300;
+        content: '\2022';
+        font-size: 1.5rem;
+    }
+
     *::-webkit-scrollbar {
         width: 6px;
     }
